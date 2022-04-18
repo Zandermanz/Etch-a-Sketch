@@ -1,6 +1,7 @@
 setGridSize(); //calls set grid size function
 function setGridSize(){
-    let gridSize = prompt("Choose your Grid Size");
+    let gridSize = 16 
+    //for Later -- prompt("Choose your Grid Size");
     //Prompts again if user enters more than 100
     if (gridSize > 100){
         gridSize = prompt("Please enter a grid size of 100 or less")
@@ -11,7 +12,8 @@ function setGridSize(){
     }
 }
 
-
+const reset =document.querySelector('#reset')
+reset.addEventListener('click', () => {changeBackground()})
 
 
 function addDiv(){
@@ -19,6 +21,18 @@ const container = document.querySelector('#gridContainer');
 const div = document.createElement('div');
     div.classList.add('grid-item');
     //adds the round result to the page
-    div.textContent = `Div`;
+    div.textContent = ``;
+    //changes color to blue after mouseover
+    div.addEventListener('mouseover', () => {
+         div.style.backgroundColor = "#7fffd4";
+     })
     container.appendChild(div);
+}
+
+function changeBackground(){
+    const div =document.querySelectorAll("div.grid-item")
+    div.forEach(div => {
+        div.style.backgroundColor = "#FFFFFF";
+        console.log(div);
+    });
 }
