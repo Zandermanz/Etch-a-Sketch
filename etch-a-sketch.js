@@ -13,7 +13,7 @@ function setGridSize(){
 }
 
 const reset =document.querySelector('#reset')
-reset.addEventListener('click', () => {changeBackground()})
+reset.addEventListener('click', () => {resetBackground()})
 
 
 function addDiv(){
@@ -29,10 +29,9 @@ const div = document.createElement('div');
     container.appendChild(div);
 }
 
-function changeBackground(){
+function resetBackground(){
     const div =document.querySelectorAll("div.grid-item")
     div.forEach(div => {
         div.style.backgroundColor = "#FFFFFF";
-        console.log(div);
     });
 }
