@@ -42,6 +42,7 @@ const div = document.createElement('div');
 //changes color of each div
 function resetBackground(){
     const div =document.querySelectorAll("div.grid-item")
+    //loops through each div to set the background color
     div.forEach(div => {
         div.style.backgroundColor = "#FFFFFF";
     });
@@ -54,12 +55,14 @@ function removeAllChildNodes(parent) {
     }
 }
 
-// function to update CSS grid and column templates
+// function to update CSS row and column templates
 function setCssGrid(rowsAndColumns){
     let gridTemplate = "auto";
+    //for each additional row/column, the for loops adds an auto to the grid style
     for (i = 1; i<rowsAndColumns; i++){
         gridTemplate += " auto";
     }
+    //pushes the string with the appropriate number of "auto" 's to the gridTemplateRow and Column settings
     container.style.gridTemplateRows = gridTemplate;
     container.style.gridTemplateColumns = gridTemplate;
 }
