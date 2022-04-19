@@ -56,14 +56,10 @@ function removeAllChildNodes(parent) {
 
 // function to update CSS grid and column templates
 function setCssGrid(rowsAndColumns){
-//    .grid-container{
-//        grid-template-columns: auto auto auto auto auto auto auto;
-//        grid-template-rows: auto auto auto auto auto auto auto;}
-
-let gridTemplate = "auto";
-for (i = 1; i<rowsAndColumns; i++){
-    gridTemplate += " auto";
-}
-container.style.gridTemplateRows = gridTemplate;
-container.style.gridTemplateColumns = gridTemplate;
+    let gridTemplate = "auto";
+    for (i = 1; i<rowsAndColumns; i++){
+        gridTemplate += " auto";
+    }
+    container.style.gridTemplateRows = gridTemplate;
+    container.style.gridTemplateColumns = gridTemplate;
 }
