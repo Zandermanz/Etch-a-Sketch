@@ -9,11 +9,11 @@ function setGridSize(){
     if (rowsAndColumns > 100){
         rowsAndColumns = prompt("Please enter a grid size of 100 or less")
     }
-    //Squares the rows and columns to get total number of grid item squares/divs
+    //Squares the rows and columns to get total number of grid item squares/Divs
     let gridSize = rowsAndColumns * rowsAndColumns;
     //Updates CSS styles to make the grid square
     setCssGrid(rowsAndColumns);   
-    //Loop to create number of Div's imputed
+    //Loop to create number of Div's required
     for(let i = 0; i < gridSize; i++){
         addDiv();
     }
