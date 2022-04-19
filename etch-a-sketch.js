@@ -1,6 +1,7 @@
 const container = document.querySelector('#gridContainer')
+const reset =document.querySelector('#reset')
 
-setGridSize(); //calls set grid size function
+setGridSize(); //calls set grid size function on page load
 
 function setGridSize(){
     let rowsAndColumns = prompt("Choose the number of columns and rows");
@@ -8,27 +9,28 @@ function setGridSize(){
     if (rowsAndColumns > 100){
         rowsAndColumns = prompt("Please enter a grid size of 100 or less")
     }
-    //Squares the rows and columns to get total number of grid squares
+    //Squares the rows and columns to get total number of grid item squares/divs
     let gridSize = rowsAndColumns * rowsAndColumns;
+    //Updates CSS styles to make the grid square
     setCssGrid(rowsAndColumns);   
     //Loop to create number of Div's imputed
     for(let i = 0; i < gridSize; i++){
         addDiv();
     }
-    return rowsAndColumns;
 }
 
-const reset =document.querySelector('#reset')
+
 reset.addEventListener('click', () => {
-    //resetBackground();
+    // Removes all child nodes from container
+    //Uses container from global scope
     removeAllChildNodes(container);
+    //sets a new grid and updates css
     setGridSize();
 })
 
 
 function addDiv(){
-const container = document.querySelector('#gridContainer');
-const div = document.createElement('div');
+    const div = document.createElement('div');
     div.classList.add('grid-item');
     //adds the round result to the page
     div.textContent = ``;
@@ -36,6 +38,7 @@ const div = document.createElement('div');
     div.addEventListener('mouseover', () => {
          div.style.backgroundColor = "#7fffd4";
      })
+    //appends div, uses container from global scope
     container.appendChild(div);
 }
 
@@ -63,6 +66,7 @@ function setCssGrid(rowsAndColumns){
         gridTemplate += " auto";
     }
     //pushes the string with the appropriate number of "auto" 's to the gridTemplateRow and Column settings
+    //uses container from global scope
     container.style.gridTemplateRows = gridTemplate;
     container.style.gridTemplateColumns = gridTemplate;
 }
