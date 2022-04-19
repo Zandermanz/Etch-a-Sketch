@@ -1,5 +1,7 @@
 const container = document.querySelector('#gridContainer')
 const reset =document.querySelector('#reset')
+const colorPicker = document.querySelector('#colorPicker')
+const color = "#7fffd4"
 
 setGridSize(); //calls set grid size function on page load
 
@@ -36,19 +38,10 @@ function addDiv(){
     div.textContent = ``;
     //changes color to blue after mouseover
     div.addEventListener('mouseover', () => {
-         div.style.backgroundColor = "#7fffd4";
+         div.style.backgroundColor = color;
      })
     //appends div, uses container from global scope
     container.appendChild(div);
-}
-
-//changes color of each div
-function resetBackground(){
-    const div =document.querySelectorAll("div.grid-item")
-    //loops through each div to set the background color
-    div.forEach(div => {
-        div.style.backgroundColor = "#FFFFFF";
-    });
 }
 
 //standard function to remove all child nodes
@@ -69,4 +62,19 @@ function setCssGrid(rowsAndColumns){
     //uses container from global scope
     container.style.gridTemplateRows = gridTemplate;
     container.style.gridTemplateColumns = gridTemplate;
+}
+
+colorPicker.addEventListener('input', changeColor)
+
+function changeColor(event){
+    let color = event.target.value;
+    console.log (color);
+    const div = document.querySelectorAll("div.grid-item")
+    //loops through each div to set add a new event listener for new
+    div.forEach(div => {
+        div.addEventListener('mouseover', () => {
+            div.style.backgroundColor = color;
+        })
+    });
+   
 }
