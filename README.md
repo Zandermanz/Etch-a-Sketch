@@ -11,3 +11,4 @@ Things I've learned from this project:
 - Improved understanding of functions
 - Practical applications of event listeners and DOM manipulation
 - Using input labels
+- Media Inquiries for responsive web design.
