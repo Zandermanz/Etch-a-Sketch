@@ -1,6 +1,5 @@
 body {
     background-color: black;
-    color: white;
     color: #7fffd4;
     text-align: center;
 }
@@ -14,7 +13,7 @@ h1{
 .grid-container{
     margin: 0 auto;
     display: grid;
-    width: 600px;
+    max-width: 600px;
     height: 600px;
 }
 
@@ -39,3 +38,15 @@ h1{
 }
 
 
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: #7fffd4;
+      color: black;
+    }
+    .grid-container{
+        max-width:90%;
+        max-height: 90vw;
+        
+        
+    }
+  }
