@@ -69,7 +69,9 @@ colorPicker.addEventListener('input', changeColor)
 function changeColor(event){
     let color = event.target.value;
     console.log (color);
-    const div = document.querySelectorAll("div.grid-item")
+    const mainHeading = document.getElementById("mainHeading");
+    mainHeading.style.color = color;
+    const div = document.querySelectorAll("div.grid-item");
     //loops through each div to set add a new event listener for new
     div.forEach(div => {
         div.addEventListener('mouseover', () => {
