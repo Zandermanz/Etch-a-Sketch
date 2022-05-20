@@ -40,8 +40,8 @@ h1{
 
 @media only screen and (max-width: 600px) {
     body {
-      background-color: #7fffd4;
-      color: black;
+      background-color: black;
+      color: #7fffd4;
     }
     .grid-container{
         max-width:90%;
