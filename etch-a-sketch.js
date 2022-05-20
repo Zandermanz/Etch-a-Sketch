@@ -3,13 +3,16 @@ const reset =document.querySelector('#reset')
 const colorPicker = document.querySelector('#colorPicker')
 const color = "#7fffd4"
 
-setGridSize(); //calls set grid size function on page load
+setGridSize(20); //calls set grid size function on page load with 20 rows and columns
 
-function setGridSize(){
-    let rowsAndColumns = prompt("Choose the number of columns and rows");
-    //Prompts again if user enters more than 100
-    if (rowsAndColumns > 100){
-        rowsAndColumns = prompt("Please enter a grid size of 100 or less")
+function setGridSize(rowsAndColumns){
+    //when no rows and columns passed, prompts user. This is used with reset button.
+    if (!rowsAndColumns){
+        rowsAndColumns = prompt("Choose the number of columns and rows");
+        //Prompts again if user enters more than 100
+        if (rowsAndColumns > 100){
+            rowsAndColumns = prompt("Please enter a grid size of 100 or less")
+        }
     }
     //Squares the rows and columns to get total number of grid item squares/Divs
     let gridSize = rowsAndColumns * rowsAndColumns;
@@ -21,7 +24,7 @@ function setGridSize(){
     }
 }
 
-
+//reset button function
 reset.addEventListener('click', () => {
     // Removes all child nodes from container
     //Uses container from global scope
@@ -36,7 +39,7 @@ function addDiv(){
     div.classList.add('grid-item');
     //adds the round result to the page
     div.textContent = ``;
-    //changes color to blue after mouseover
+    //changes color after mouseover
     div.addEventListener('mouseover', () => {
          div.style.backgroundColor = color;
      })
@@ -44,14 +47,14 @@ function addDiv(){
     container.appendChild(div);
 }
 
-//standard function to remove all child nodes
+//standard function to remove all child nodes for resets
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
 }
 
-// function to update CSS row and column templates
+// function to update CSS row and column templates, keeps boxes square
 function setCssGrid(rowsAndColumns){
     let gridTemplate = "auto";
     //for each additional row/column, the for loops adds an auto to the grid style
